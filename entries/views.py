@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Entry
+from .forms import EntryForm
 
 
 def index(request):
@@ -9,4 +10,6 @@ def index(request):
 
 
 def add(request):
-    return render(request, "entries/add.html")
+    form = EntryForm()
+    context = {"form": form}
+    return render(request, "entries/add.html", context)
